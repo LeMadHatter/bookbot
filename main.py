@@ -9,7 +9,14 @@ def main():
     
     num_each_letter= count_each_letter(book_text)
     num_each_letter.sort(reverse=True, key=sort_on)
-    print(num_each_letter)
+    print_report(word_count, num_each_letter, book_path)
+
+def print_report(num_words, num_each_letter, book_path):
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{num_words} words have been found in the document.")
+    for index in range (0, len(num_each_letter)):
+        print(f"The {num_each_letter[index]['letter']} character was found {num_each_letter[index]['num']} times")
+    print("--- End report ---")
 
 def sort_on(dict):
     return dict["num"]
